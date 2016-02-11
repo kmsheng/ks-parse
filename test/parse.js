@@ -7,6 +7,15 @@ function getUint8ArrayData(data) {
 
 describe('parse', function() {
 
+  it('should handle null', function() {
+
+    var parse = new Parse();
+    var arr = getUint8ArrayData(null);
+
+    parse.parse(arr).should.equal('null');
+  });
+
+
   it('should handle string', function() {
 
     var parse = new Parse();
