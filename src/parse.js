@@ -113,7 +113,6 @@ Parse.prototype.parseNonStr = function(nonStr) {
   if (_.isNumber(value) && ! _.isNaN(value)) {
     return value;
   }
-  console.trace('here');
   throw 'Parsed failed: ' + nonStr;
 };
 
