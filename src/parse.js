@@ -60,16 +60,38 @@ Parse.prototype.parse = function(arr, options) {
   return self.getResult(arr[arr.length - 1]);
 };
 
+Parse.prototype.clear = function() {
+
+  this.stacks = [];
+  this.propStacks = [];
+  this.str = undefined;
+  this.nonStr = '';
+  this.objectOpened = false;
+  this.arrayOpened = false;
+  this.stringOpened = false;
+  this.skipOne = false;
+};
+
 Parse.prototype.getResult = function(lastNum) {
+
+  var result;
+
   if (DOUBLE_QUOTE === lastNum) {
-    return this.str;
+    result = this.str;
   }
-  if (RIGHT_BRACKET === lastNum) {
-    return _.first(this.stacks);
+  else if (RIGHT_BRACKET === lastNum) {
+    result = _.first(this.stacks);
   }
-  if (RIGHT_BRACE === lastNum) {
-    return _.first(this.stacks);
+  else if (RIGHT_BRACE === lastNum) {
+    result = _.first(this.stacks);
   }
+  else {
+    result = this.nonStr;
+  }
+
+  this.clear();
+
+  return result;
 };
 
 Parse.prototype.parseNonStr = function(nonStr) {
