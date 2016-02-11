@@ -86,7 +86,7 @@ Parse.prototype.getResult = function(lastNum) {
     result = _.first(this.stacks);
   }
   else {
-    result = this.nonStr;
+    result = this.parseNonStr(this.nonStr);
   }
 
   this.clear();
