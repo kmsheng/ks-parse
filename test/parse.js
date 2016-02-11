@@ -15,6 +15,16 @@ describe('parse', function() {
     parse.parse(arr).should.equal('null');
   });
 
+  it('should handle number', function() {
+
+    var parse = new Parse();
+    var arr = getUint8ArrayData(1);
+
+    parse.parse(arr).should.equal('1');
+
+    arr = getUint8ArrayData(1.1);
+    parse.parse(arr).should.equal('1.1');
+  });
 
   it('should handle string', function() {
 
