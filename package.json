@@ -1,0 +1,21 @@
+{
+  "name": "ks-parse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "lodash": "^4.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.2"
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "author": "kmsheng <kmsh3ng@gmail.com> (https://kmsheng.com)",
+  "license": "ISC"
+}
