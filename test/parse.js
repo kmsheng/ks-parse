@@ -70,6 +70,20 @@ describe('parse', function() {
     parse.parse(arr).should.deepEqual(data);
   });
 
+  it('should handle nested array', function() {
+
+    var parse = new Parse();
+    var data = [
+      [1, 2],
+      [3, 4],
+      [5, 6],
+      [7, 8]
+    ];
+    var arr = getUint8ArrayData(data);
+
+    parse.parse(arr).should.deepEqual(data);
+  });
+
   it('should handle string array', function() {
 
     var parse = new Parse();

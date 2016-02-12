@@ -195,6 +195,10 @@ Parse.prototype.handleRightBracket = function() {
     this.write(parentStack, this.stacks.pop());
   }
 
+  if (_.isArray(parentStack)) {
+    this.write(parentStack, this.stacks.pop());
+  }
+
   this.arrayOpened = false;
 };
 
