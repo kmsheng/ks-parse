@@ -38,6 +38,15 @@ describe('parse', function() {
     parse.parse(arr).should.equal('testing');
   });
 
+  it('should escape characters', function() {
+
+    var parse = new Parse();
+    var data = 'te\\st\'ing';
+    var arr = getUint8ArrayData(data);
+
+    parse.parse(arr).should.equal('te\\st\'ing');
+  });
+
   it('should handle array', function() {
 
     var parse = new Parse();
