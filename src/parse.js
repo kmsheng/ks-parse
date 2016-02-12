@@ -184,10 +184,15 @@ Parse.prototype.handleRightBracket = function() {
     var stack = this.getCurrentStack();
     this.write(stack);
   }
-
-  if (this.str) {
+  else if (this.str) {
     var stack = this.getCurrentStack();
     this.write(stack);
+  }
+
+  var parentStack = this.getParentStack();
+
+  if (_.isPlainObject(parentStack)) {
+    this.write(parentStack, this.stacks.pop());
   }
 
   this.arrayOpened = false;
@@ -214,9 +219,9 @@ Parse.prototype.write = function(stack, assignedValue) {
     stack[currentProp] = value;
     this.propStacks.pop();
   }
+
   if (_.isArray(stack) && (undefined !== value)) {
     stack.push(value);
-    this.propStacks.pop();
   }
 }
 
