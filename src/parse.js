@@ -206,10 +206,12 @@ Parse.prototype.write = function(stack, assignedValue) {
     value = this.str;
     this.str = undefined;
   }
+
   if (this.nonStr) {
     value = this.parseNonStr(this.nonStr);
     this.nonStr = '';
   }
+
   if (assignedValue) {
     value = assignedValue;
   }
