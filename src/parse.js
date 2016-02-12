@@ -182,8 +182,12 @@ Parse.prototype.handleRightBracket = function() {
 
   if (this.nonStr) {
     var stack = this.getCurrentStack();
-    stack.push(this.parseNonStr(this.nonStr));
-    this.nonStr = '';
+    this.write(stack);
+  }
+
+  if (this.str) {
+    var stack = this.getCurrentStack();
+    this.write(stack);
   }
 
   this.arrayOpened = false;
