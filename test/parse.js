@@ -70,6 +70,19 @@ describe('parse', function() {
     parse.parse(arr).should.deepEqual(data);
   });
 
+  it('should handle string array', function() {
+
+    var parse = new Parse();
+    var data = [
+      'str1',
+      'str2',
+      'str3'
+    ];
+    var arr = getUint8ArrayData(data);
+
+    parse.parse(arr).should.deepEqual(data);
+  });
+
   it('should handle object', function() {
 
     var parse = new Parse();
