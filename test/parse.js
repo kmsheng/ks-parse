@@ -114,4 +114,20 @@ describe('parse', function() {
     });
   });
 
+  it('should handle object (2)', function() {
+
+    var parse = new Parse();
+
+    var data = {
+      contents: [1, 2, 3],
+      tokenData: {
+        test: [1, 2, 3],
+        test2: [3, 4, 5]
+      }
+    };
+
+    var arr = getUint8ArrayData(data);
+    parse.parse(arr).should.deepEqual(data);
+  });
+
 });
