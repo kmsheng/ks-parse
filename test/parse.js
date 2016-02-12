@@ -32,10 +32,10 @@ describe('parse', function() {
   it('should handle string', function() {
 
     var parse = new Parse();
-    var data = 'testing';
+    var data = 'testing རངས།';
     var arr = getUint8ArrayData(data);
 
-    parse.parse(arr).should.equal('testing');
+    parse.parse(arr).should.equal('testing རངས།');
   });
 
   it('should escape characters', function() {

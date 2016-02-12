@@ -246,6 +246,10 @@ Parse.prototype.handleDoubleQuote = function() {
   if (this.stringOpened) {
     this.str = '';
   }
+  else if (this.str) {
+    // decode UTF8
+    this.str = decodeURIComponent(escape(this.str));
+  }
 };
 
 Parse.prototype.handleDefault = function(num) {
