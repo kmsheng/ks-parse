@@ -23,9 +23,8 @@ function Parse() {
   this.skipOne = false;
 }
 
-Parse.prototype.parse = function(arr, options) {
+Parse.prototype.parse = function(arr) {
 
-  options = options || {chunkSize: 40};
   var self = this;
 
   arr.forEach(function(num) {
