@@ -24,7 +24,6 @@ function Parse() {
 
 Parse.prototype.parse = function(arr, options) {
 
-  arr = arr || [];
   options = options || {chunkSize: 40};
   var self = this;
 
