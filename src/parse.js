@@ -27,7 +27,7 @@ Parse.prototype.parse = function(arr, options) {
   options = options || {chunkSize: 40};
   var self = this;
 
-  _.each(arr, function(num) {
+  arr.forEach(function(num) {
 
     if (self.skipOne) {
       self.skipOne = false;
