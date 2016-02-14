@@ -1,13 +1,14 @@
+
 var _ = require('lodash')._;
 
-const LEFT_BRACE = 123;    // {
-const RIGHT_BRACE = 125;   // }
-const LEFT_BRACKET = 91;    // [
-const RIGHT_BRACKET = 93;    // ]
-const DOUBLE_QUOTE = 34;    // "
-const BACKSLASH = 92;    // \
-const COMMA = 44;    // ,
-const COLON = 58;    // :
+var LEFT_BRACE = 123;    // {
+var RIGHT_BRACE = 125;   // }
+var LEFT_BRACKET = 91;    // [
+var RIGHT_BRACKET = 93;    // ]
+var DOUBLE_QUOTE = 34;    // "
+var BACKSLASH = 92;    // \
+var COMMA = 44;    // ,
+var COLON = 58;    // :
 
 function Parse() {
 
