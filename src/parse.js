@@ -223,7 +223,7 @@ Parse.prototype.write = function(stack, assignedValue) {
   if (_.isArray(stack) && (undefined !== value)) {
     stack.push(value);
   }
-}
+};
 
 Parse.prototype.handleRightBrace = function() {
 
