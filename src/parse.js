@@ -179,13 +179,8 @@ Parse.prototype.handleLeftBracket = function() {
 
 Parse.prototype.handleRightBracket = function() {
 
-  if (this.nonStr) {
-    var stack = this.getCurrentStack();
-    this.write(stack);
-  }
-  else if (this.str) {
-    var stack = this.getCurrentStack();
-    this.write(stack);
+  if (this.nonStr || this.str) {
+    this.write(this.getCurrentStack());
   }
 
   var parentStack = this.getParentStack();
