@@ -38,17 +38,17 @@ Parse.prototype.parse = function(arr) {
       case BACKSLASH:
         return self.handleBackSlash();
       case COLON:
-        return self.handleColon();
+        return self.handleColon(num);
       case COMMA:
         return self.handleComma(num);
       case LEFT_BRACE:
-        return self.handleLeftBrace();
+        return self.handleLeftBrace(num);
       case RIGHT_BRACE:
-        return self.handleRightBrace();
+        return self.handleRightBrace(num);
       case LEFT_BRACKET:
-        return self.handleLeftBracket();
+        return self.handleLeftBracket(num);
       case RIGHT_BRACKET:
-        return self.handleRightBracket();
+        return self.handleRightBracket(num);
       case DOUBLE_QUOTE:
         return self.handleDoubleQuote();
       default:
@@ -115,7 +115,10 @@ Parse.prototype.parseNonStr = function(nonStr) {
   throw 'Parsed failed: ' + nonStr;
 };
 
-Parse.prototype.handleColon = function() {
+Parse.prototype.handleColon = function(num) {
+  if (this.stringOpened) {
+    return this.handleDefault(num);
+  }
   this.propStacks.push(this.str);
   this.str = undefined;
 };
@@ -167,17 +170,30 @@ Parse.prototype.getCurrentProp = function() {
   return this.propStacks[this.propStacks.length - 1];
 };
 
-Parse.prototype.handleLeftBrace = function() {
+Parse.prototype.handleLeftBrace = function(num) {
+
+  if (this.stringOpened) {
+    return this.handleDefault(num);
+  }
   this.stacks.push({});
   this.objectOpened = true;
 };
 
-Parse.prototype.handleLeftBracket = function() {
+Parse.prototype.handleLeftBracket = function(num) {
+
+  if (this.stringOpened) {
+    return this.handleDefault(num);
+  }
+
   this.stacks.push([]);
   this.arrayOpened = true;
 };
 
-Parse.prototype.handleRightBracket = function() {
+Parse.prototype.handleRightBracket = function(num) {
+
+  if (this.stringOpened) {
+    return this.handleDefault(num);
+  }
 
   if (this.nonStr || this.str) {
     this.write(this.getCurrentStack());
@@ -225,7 +241,11 @@ Parse.prototype.write = function(stack, assignedValue) {
   }
 };
 
-Parse.prototype.handleRightBrace = function() {
+Parse.prototype.handleRightBrace = function(num) {
+
+  if (this.stringOpened) {
+    return this.handleDefault(num);
+  }
 
   this.objectOpened = false;
   var parentStack = this.getParentStack();
