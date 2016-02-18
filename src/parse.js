@@ -1,5 +1,5 @@
 
-var _ = require('lodash')._;
+var _ = require('lodash');
 
 var LEFT_BRACE = 123;    // {
 var RIGHT_BRACE = 125;   // }
