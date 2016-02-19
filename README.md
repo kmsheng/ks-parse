@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kmsheng/ks-parse.svg?branch=master)](https://travis-ci.org/kmsheng/ks-parse) 
+
 # ks-parse
 JSON.parse like function that handles Uint8Array
 
